@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/955cea49f0.js" crossorigin="anonymous"></script>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <title><%= title%></title>
+</head>
+<body>
+<div class="container-fluid font-weight-bold">
+  <div id="top" class="text-center p-2 bg-primary">
+    <h1>Weather today</h1>
+  </div>
+  <div id="top2" class="bg-secondary d-flex justify-content-center">
+    <form class="form-inline" method="post" action="/salji">
+      <div class="form-group p-3">
+        <label for="sel1">Select country name: </label>
+        <select class="form-control w-52" name="sel1">
+          <option value="BA">Bosna</option>
+          <option value="BR">Brazil</option>
+          <option value="CA">Canada</option>
+          <option value="HR">Croatia</option>
+          <option value="FR">France</option>
+          <option value="DE">Germany</option>
+          <option value="IN">India</option>
+          <option value="ID">Indonesia</option>
+          <option value="IE">Ireland</option>
+          <option value="IT">Italy</option>
+          <option value="MX">Mexico</option>
+          <option value="MA">Morocco</option>
+          <option value="NZ">New Zealand</option>
+          <option value="NG">Nigeria</option>
+          <option value="NO">Norway</option>
+          <option value="PS">Palestine</option>
+          <option value="RU">Russia</option>
+          <option value="RS">Serbia</option>
+          <option value="KR">South Korea</option>
+          <option value="ES">Spain</option>
+          <option value="CH">Switzerland</option>
+          <option value="TR">Turkey</option>
+          <option value="AE">UAE</option>
+          <option value="UK">United Kingdom</option>
+          <option value="US">USA</option>
+        </select>
+      </div>
+      <div class="form-group p-3">
+        <label for="city">Enter city name: </label>
+        <input type="text" class="form-control w-52" name="city">
+      </div>
+      <button type="submit" class="btn btn-outline-info m-3">Submit</button>
+    </form>
+  </div>
+  <div class="container">
+    <div class="row">
+      <h2 class="col text-center pt-4"><%=data.city%>, <%=data.cntry%></h2>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <%if (data.desc.includes('sun') || data.desc.includes('clear')){%>
+        <span style="font-size: 10vh; color: orange;">
+          <i class="fas fa-sun"></i>
+        </span>
+        <script>document.body.style.backgroundImage = "url('images/sunny.jpg')";</script>
+      <%}%>
+      <%if (data.desc.includes('rain')){%>
+        <span style="font-size: 10vh; color: dodgerblue;">
+          <i class="fas fa-cloud-showers-heavy"></i>
+        </span>
+          <script>document.body.style.backgroundImage = "url('images/rain.jpg')";</script>
+        <%}%>
+        <%if(data.desc.includes('mist') || data.desc.includes('haze') || data.desc.includes('smoke') || data.desc.includes('fog')) {%>
+          <span style="font-size: 10vh; color: lightseagreen;">
+            <i class="fas fa-smog"></i>
+          </span>
+          <script>document.body.style.backgroundImage = "url('images/mist.jpg')";</script>
+        <%}%>
+        <%if (data.desc.includes('overcast') || data.desc.includes('cloud')){%>
+          <span style="font-size: 10vh; color: dodgerblue;">
+            <i class="fas fa-cloud"></i>
+          </span>
+          <script>document.body.style.backgroundImage = "url('images/cloud.jpg')";</script>
+        <%}%>
+        <%if (data.desc.includes('snow')){%>
+          <span style="font-size: 10vh; color: navajowhite;">
+            <i class="fas fa-snowflake"></i>
+          </span>
+          <script>document.body.style.backgroundImage = "url('images/snow.jpg')";</script>
+        <%}%>
+        <%if (data.desc.includes('thunder') || data.desc.includes('storm')){%>
+          <span style="font-size: 10vh; color: yellow;">
+            <i class="fas fa-bolt"></i>
+          </span>
+          <script>document.body.style.backgroundImage = "url('images/thunder.jpg')";</script>
+        <%}%>
+        <%if(data.desc.includes('broken') || data.desc.includes('few')){%>
+          <span style="font-size: 10vh; color: dodgerblue;">
+            <i class="fas fa-cloud-sun"></i>
+          </span>
+        <%}%>
+
+    </div>
+    <div class="row d-flex justify-content-center pt-4 container-fluid">
+      <h5 class="col text-center">
+        <i class="fas fa-temperature-high"></i>Temperature
+        <h4 class="px-2"><%= Math.round(data.temp)%>°C</h4></h5>
+      <h5 class="col text-center">
+        <i class="fas fa-compress-arrows-alt"></i> Pressure
+        <h4 class="px-2"><%= data.pres%></h4></h5>
+      <h5 class="col text-center">
+        <i class="fas fa-water"></i> Humidity
+        <h4 class="px-2"><%= data.hum%></h4></h5>
+      <h5 class="col text-center">
+        <i class="fas fa-info-circle"></i> Description
+        <h4 class="px-2"><%= data.desc%></h4></h5>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
