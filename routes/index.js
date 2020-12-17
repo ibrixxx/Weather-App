@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
   weather.setLang('en');
   weather.setCity('Sarajevo, BA');
   weather.setUnits('metric');
-  weather.setAPPID('c714fd204565cdd72c0557177b4ab322');
+  weather.setAPPID(' ***enter yor app id*** ');
 
   var data = { };
   data.city = 'Sarajevo';
