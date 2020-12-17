@@ -1,0 +1,43 @@
+html{
+  height: 100%;
+}
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1 {
+  font-family: "Lucida Bright", sans-serif;
+  opacity: 1.0;
+  color: antiquewhite;
+}
+
+a {
+  color: #00B7FF;
+}
+
+h4 {
+  color: #00B7FF;
+  border: solid lightskyblue;
+  border-right: solid gray;
+  border-bottom: solid gray;
+  background-color: rgba(12,14,15,0.5);
+}
+
+h5.col {
+  background-color: rgba(212,214,215,0.5);
+  border: solid lightskyblue;
+}
+
+#top2 {
+  opacity: 0.75;
+}
+
+#top {
+  opacity: 0.85;
+}
+
